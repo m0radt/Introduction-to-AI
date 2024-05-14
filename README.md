@@ -6,4 +6,4 @@
 
 <a href= "https://github.com/m0radt/Introduction-to-AI/tree/main/assignment3" >probabilistic reasoning</a>
 
-<a href= "https://github.com/m0radt/Introduction-to-AI/tree/main/assignment4" >MAPD problem</a>
+<a href= "https://github.com/m0radt/Introduction-to-AI/tree/main/assignment4" >Decision-making under uncertainty</a>
