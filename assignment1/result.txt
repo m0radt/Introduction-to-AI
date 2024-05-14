@@ -1,0 +1,77 @@
+we used MST heuristic
+
+*********          
+█ █ █ 2 █
+    #     
+█ █ R █ █
+F         
+█ 0 █ █ D2
+F         
+█ D0 █ 1#D1
+*********
+T = 0
+-------------------------
+AStarAgent
+Score: 3
+Number of expansions: 22
+Number of movements: 18
+Total time passed: 18
+-------------------------
+-------------------------
+RealTimeAStarAgent
+Score: 3
+Number of expansions: 29
+Number of movements: 18
+Total time passed: 18
+-------------------------
+-------------------------
+GreedyAgent
+Score: 3
+Number of expansions: 25
+Number of movements: 22
+Total time passed: 22
+-------------------------
+T = 0.01
+-------------------------
+AStarAgent
+Score: 3
+Number of expansions: 22
+Number of movements: 18
+Total time passed: 18.22
+-------------------------
+-------------------------
+RealTimeAStarAgent
+Score: 3
+Number of expansions: 29
+Number of movements: 18
+Total time passed: 18.29
+-------------------------
+-------------------------
+GreedyAgent
+Score: 3
+Number of expansions: 25
+Number of movements: 22
+Total time passed: 22.25
+-------------------------
+T = 0.000001
+-------------------------
+AStarAgent
+Score: 3
+Number of expansions: 22
+Number of movements: 18
+Total time passed: 18.000022
+-------------------------
+-------------------------
+RealTimeAStarAgent
+Score: 3
+Number of expansions: 29
+Number of movements: 18
+Total time passed: 18.000029
+-------------------------
+-------------------------
+GreedyAgent
+Score: 3
+Number of expansions: 25
+Number of movements: 22
+Total time passed: 22.000025
+-------------------------

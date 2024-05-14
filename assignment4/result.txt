@@ -1,0 +1,414 @@
+------------------------------------------------ 
+Environment:
+
+*********          
+D █ █ █ █
+    #     
+█ █ █ █ █
+F         
+█ █ █ █ █
+          
+P █ █ █#█
+*********
+
+vertices: [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (0, 1), (1, 1), (2, 1), (3, 1), (4, 1), (0, 2), (1, 2), (2, 2), (3, 2), (4, 2), (0, 3), (1, 3), (2, 3), (3, 3), (4, 3)]
+STATE
+Current vertex: [VERTEX (0, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -3 ACTION:  (EDGE E((0, 0), (0, 1)), blocked with probability: 0, weight 1, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -4.0 ACTION:  (EDGE E((0, 0), (1, 0)), blocked with probability: 0, weight 1, [VERTEX (0, 0), target: False] [VERTEX (1, 0), target: False])
+STATE
+Current vertex: [VERTEX (2, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -5.0 ACTION:  (EDGE E((1, 0), (2, 0)), blocked with probability: 0, weight 1, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+STATE
+Current vertex: [VERTEX (3, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -6.0 ACTION:  (EDGE E((2, 0), (3, 0)), blocked with probability: 0, weight 1, [VERTEX (2, 0), target: False] [VERTEX (3, 0), target: False])
+STATE
+Current vertex: [VERTEX (4, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -7.0 ACTION:  (EDGE E((4, 0), (4, 1)), blocked with probability: 0, weight 1, [VERTEX (4, 0), target: False] [VERTEX (4, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -2 ACTION:  (EDGE E((0, 1), (0, 2)), blocked with probability: 0.4, weight 1, [VERTEX (0, 1), target: False] [VERTEX (0, 2), target: False])
+STATE
+Current vertex: [VERTEX (1, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -3 ACTION:  (EDGE E((0, 1), (1, 1)), blocked with probability: 0, weight 1, [VERTEX (0, 1), target: False] [VERTEX (1, 1), target: False])
+STATE
+Current vertex: [VERTEX (2, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -4.0 ACTION:  (EDGE E((1, 1), (2, 1)), blocked with probability: 0, weight 1, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (3, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -5.0 ACTION:  (EDGE E((2, 1), (3, 1)), blocked with probability: 0, weight 1, [VERTEX (2, 1), target: False] [VERTEX (3, 1), target: False])
+STATE
+Current vertex: [VERTEX (4, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -6.0 ACTION:  (EDGE E((3, 1), (4, 1)), blocked with probability: 0, weight 1, [VERTEX (3, 1), target: False] [VERTEX (4, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 2), (0, 3)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (0, 3), target: True])
+STATE
+Current vertex: [VERTEX (1, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -2 ACTION:  (EDGE E((0, 2), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 2), (2, 2)), blocked with probability: 0, weight 1, [VERTEX (1, 2), target: False] [VERTEX (2, 2), target: False])
+STATE
+Current vertex: [VERTEX (3, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -4.0 ACTION:  (EDGE E((2, 2), (3, 2)), blocked with probability: 0, weight 1, [VERTEX (2, 2), target: False] [VERTEX (3, 2), target: False])
+STATE
+Current vertex: [VERTEX (4, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -5.0 ACTION:  (EDGE E((3, 2), (4, 2)), blocked with probability: 0, weight 1, [VERTEX (3, 2), target: False] [VERTEX (4, 2), target: False])
+STATE
+Current vertex: [VERTEX (0, 3), target: True]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: 0 ACTION:  FINISH
+STATE
+Current vertex: [VERTEX (1, 3), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 3), (1, 3)), blocked with probability: 0, weight 1, [VERTEX (0, 3), target: True] [VERTEX (1, 3), target: False])
+STATE
+Current vertex: [VERTEX (2, 3), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -2 ACTION:  (EDGE E((1, 3), (2, 3)), blocked with probability: 0, weight 1, [VERTEX (1, 3), target: False] [VERTEX (2, 3), target: False])
+STATE
+Current vertex: [VERTEX (3, 3), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -3 ACTION:  (EDGE E((2, 3), (3, 3)), blocked with probability: 0, weight 1, [VERTEX (2, 3), target: False] [VERTEX (3, 3), target: False])
+STATE
+Current vertex: [VERTEX (4, 3), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -4 ACTION:  (EDGE E((3, 3), (4, 3)), blocked with probability: 0, weight 1, [VERTEX (3, 3), target: False] [VERTEX (4, 3), target: False])
+STATE
+Current vertex: [VERTEX (0, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -5.0 ACTION:  (EDGE E((0, 0), (1, 0)), blocked with probability: 0, weight 1, [VERTEX (0, 0), target: False] [VERTEX (1, 0), target: False])
+STATE
+Current vertex: [VERTEX (1, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -4.0 ACTION:  (EDGE E((1, 0), (1, 1)), blocked with probability: 0, weight 1, [VERTEX (1, 0), target: False] [VERTEX (1, 1), target: False])
+STATE
+Current vertex: [VERTEX (2, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -5.0 ACTION:  (EDGE E((1, 0), (2, 0)), blocked with probability: 0, weight 1, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+STATE
+Current vertex: [VERTEX (3, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -6.0 ACTION:  (EDGE E((2, 0), (3, 0)), blocked with probability: 0, weight 1, [VERTEX (2, 0), target: False] [VERTEX (3, 0), target: False])
+STATE
+Current vertex: [VERTEX (4, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -7.0 ACTION:  (EDGE E((4, 0), (4, 1)), blocked with probability: 0, weight 1, [VERTEX (4, 0), target: False] [VERTEX (4, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -4.0 ACTION:  (EDGE E((0, 1), (1, 1)), blocked with probability: 0, weight 1, [VERTEX (0, 1), target: False] [VERTEX (1, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 1), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -4.0 ACTION:  (EDGE E((1, 1), (2, 1)), blocked with probability: 0, weight 1, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (3, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -5.0 ACTION:  (EDGE E((2, 1), (3, 1)), blocked with probability: 0, weight 1, [VERTEX (2, 1), target: False] [VERTEX (3, 1), target: False])
+STATE
+Current vertex: [VERTEX (4, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -6.0 ACTION:  (EDGE E((3, 1), (4, 1)), blocked with probability: 0, weight 1, [VERTEX (3, 1), target: False] [VERTEX (4, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 2), (0, 3)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (0, 3), target: True])
+STATE
+Current vertex: [VERTEX (1, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -2 ACTION:  (EDGE E((0, 2), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 2), (2, 2)), blocked with probability: 0, weight 1, [VERTEX (1, 2), target: False] [VERTEX (2, 2), target: False])
+STATE
+Current vertex: [VERTEX (3, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -4.0 ACTION:  (EDGE E((2, 2), (3, 2)), blocked with probability: 0, weight 1, [VERTEX (2, 2), target: False] [VERTEX (3, 2), target: False])
+STATE
+Current vertex: [VERTEX (4, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -5.0 ACTION:  (EDGE E((3, 2), (4, 2)), blocked with probability: 0, weight 1, [VERTEX (3, 2), target: False] [VERTEX (4, 2), target: False])
+STATE
+Current vertex: [VERTEX (0, 3), target: True]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: 0 ACTION:  FINISH
+STATE
+Current vertex: [VERTEX (1, 3), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 3), (1, 3)), blocked with probability: 0, weight 1, [VERTEX (0, 3), target: True] [VERTEX (1, 3), target: False])
+STATE
+Current vertex: [VERTEX (2, 3), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -2 ACTION:  (EDGE E((1, 3), (2, 3)), blocked with probability: 0, weight 1, [VERTEX (1, 3), target: False] [VERTEX (2, 3), target: False])
+STATE
+Current vertex: [VERTEX (3, 3), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -3 ACTION:  (EDGE E((2, 3), (3, 3)), blocked with probability: 0, weight 1, [VERTEX (2, 3), target: False] [VERTEX (3, 3), target: False])
+STATE
+Current vertex: [VERTEX (4, 3), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -4 ACTION:  (EDGE E((3, 3), (4, 3)), blocked with probability: 0, weight 1, [VERTEX (3, 3), target: False] [VERTEX (4, 3), target: False])
+STATE
+Current vertex: [VERTEX (0, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -3.8 ACTION:  (EDGE E((0, 0), (0, 1)), blocked with probability: 0, weight 1, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -4.0 ACTION:  (EDGE E((1, 0), (1, 1)), blocked with probability: 0, weight 1, [VERTEX (1, 0), target: False] [VERTEX (1, 1), target: False])
+STATE
+Current vertex: [VERTEX (2, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -5.0 ACTION:  (EDGE E((1, 0), (2, 0)), blocked with probability: 0, weight 1, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+STATE
+Current vertex: [VERTEX (3, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -6.0 ACTION:  (EDGE E((2, 0), (3, 0)), blocked with probability: 0, weight 1, [VERTEX (2, 0), target: False] [VERTEX (3, 0), target: False])
+STATE
+Current vertex: [VERTEX (4, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -7.0 ACTION:  (EDGE E((4, 0), (4, 1)), blocked with probability: 0, weight 1, [VERTEX (4, 0), target: False] [VERTEX (4, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 1), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 1), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 1), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -4.0 ACTION:  (EDGE E((1, 1), (2, 1)), blocked with probability: 0, weight 1, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (3, 1), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -5.0 ACTION:  (EDGE E((2, 1), (3, 1)), blocked with probability: 0, weight 1, [VERTEX (2, 1), target: False] [VERTEX (3, 1), target: False])
+STATE
+Current vertex: [VERTEX (4, 1), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -6.0 ACTION:  (EDGE E((3, 1), (4, 1)), blocked with probability: 0, weight 1, [VERTEX (3, 1), target: False] [VERTEX (4, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 2), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -2.0 ACTION:  (EDGE E((0, 2), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 2), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 2), (2, 2)), blocked with probability: 0, weight 1, [VERTEX (1, 2), target: False] [VERTEX (2, 2), target: False])
+STATE
+Current vertex: [VERTEX (3, 2), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -4.0 ACTION:  (EDGE E((2, 2), (3, 2)), blocked with probability: 0, weight 1, [VERTEX (2, 2), target: False] [VERTEX (3, 2), target: False])
+STATE
+Current vertex: [VERTEX (4, 2), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -5.0 ACTION:  (EDGE E((3, 2), (4, 2)), blocked with probability: 0, weight 1, [VERTEX (3, 2), target: False] [VERTEX (4, 2), target: False])
+STATE
+Current vertex: [VERTEX (0, 3), target: True]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: 0 ACTION:  FINISH
+STATE
+Current vertex: [VERTEX (1, 3), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 3), (1, 3)), blocked with probability: 0, weight 1, [VERTEX (0, 3), target: True] [VERTEX (1, 3), target: False])
+STATE
+Current vertex: [VERTEX (2, 3), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -2 ACTION:  (EDGE E((1, 3), (2, 3)), blocked with probability: 0, weight 1, [VERTEX (1, 3), target: False] [VERTEX (2, 3), target: False])
+STATE
+Current vertex: [VERTEX (3, 3), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -3 ACTION:  (EDGE E((2, 3), (3, 3)), blocked with probability: 0, weight 1, [VERTEX (2, 3), target: False] [VERTEX (3, 3), target: False])
+STATE
+Current vertex: [VERTEX (4, 3), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -4 ACTION:  (EDGE E((3, 3), (4, 3)), blocked with probability: 0, weight 1, [VERTEX (3, 3), target: False] [VERTEX (4, 3), target: False])
+
+
+
+ ------------------------------------------------ 
+SIMULATION:
+
+Do you want to block edge E((0, 1), (0, 2))? respond with y or n
+
+n: 
+
+(EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+(EDGE E((0, 1), (0, 2)), blocked with probability: 0.4, [VERTEX (0, 1), target: False] [VERTEX (0, 2), target: False])
+(EDGE E((0, 2), (0, 3)), blocked with probability: 0, [VERTEX (0, 2), target: False] [VERTEX (0, 3), target: True])
+
+y:
+
+(EDGE E((0, 0), (0, 1)), blocked with probability: 0, weight 1, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+(EDGE E((0, 1), (1, 1)), blocked with probability: 0, weight 1, [VERTEX (0, 1), target: False] [VERTEX (1, 1), target: False])
+(EDGE E((1, 1), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+(EDGE E((0, 2), (1, 2)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (1, 2), target: False])
+(EDGE E((0, 2), (0, 3)), blocked with probability: 0, weight 1, [VERTEX (0, 2), target: False] [VERTEX (0, 3), target: True])
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+INPUT:
+
+#X 2                ; Maximum x coordinate
+#Y 2                ; Maximum y coordinate
+#P 0 0 0  D 0 2 50  
+#B 1 0 1 1          
+#B 0 1 1 1          
+#F 0 1 0 2 0.4   
+
+OUTPUT:
+------------------------------------------------ 
+Environment:
+
+*****      
+D █ █
+F     
+█#█ █
+  #   
+P █ █
+*****
+The vertices: [(0, 0), (1, 0), (2, 0), (0, 1), (1, 1), (2, 1), (0, 2), (1, 2), (2, 2)]
+STATE
+Current vertex: [VERTEX (0, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -2 ACTION:  (EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -3.0 ACTION:  (EDGE E((0, 0), (1, 0)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (1, 0), target: False])
+STATE
+Current vertex: [VERTEX (2, 0), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -4.0 ACTION:  (EDGE E((1, 0), (2, 0)), blocked with probability: 0, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+STATE
+Current vertex: [VERTEX (0, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 1), (0, 2)), blocked with probability: 0.4, [VERTEX (0, 1), target: False] [VERTEX (0, 2), target: True])
+STATE
+Current vertex: [VERTEX (1, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -2.0 ACTION:  (EDGE E((1, 1), (1, 2)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 1), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 1), (2, 1)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 2), target: True]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: 0 ACTION:  FINISH
+STATE
+Current vertex: [VERTEX (1, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 2), (1, 2)), blocked with probability: 0, [VERTEX (0, 2), target: True] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 2), target: False]
+{E((0, 1), (0, 2)): 0, }
+ UTILITY: -2.0 ACTION:  (EDGE E((1, 2), (2, 2)), blocked with probability: 0, [VERTEX (1, 2), target: False] [VERTEX (2, 2), target: False])
+STATE
+Current vertex: [VERTEX (0, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -6.0 ACTION:  (EDGE E((0, 0), (1, 0)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (1, 0), target: False])
+STATE
+Current vertex: [VERTEX (1, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -5.0 ACTION:  (EDGE E((1, 0), (2, 0)), blocked with probability: 0, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+STATE
+Current vertex: [VERTEX (2, 0), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -4.0 ACTION:  (EDGE E((2, 0), (2, 1)), blocked with probability: 0, [VERTEX (2, 0), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -7.0 ACTION:  (EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -2.0 ACTION:  (EDGE E((1, 1), (1, 2)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 1), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 1), (2, 1)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (0, 2), target: True]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: 0 ACTION:  FINISH
+STATE
+Current vertex: [VERTEX (1, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -1 ACTION:  (EDGE E((0, 2), (1, 2)), blocked with probability: 0, [VERTEX (0, 2), target: True] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 2), target: False]
+{E((0, 1), (0, 2)): 1, }
+ UTILITY: -2.0 ACTION:  (EDGE E((1, 2), (2, 2)), blocked with probability: 0, [VERTEX (1, 2), target: False] [VERTEX (2, 2), target: False])
+STATE
+Current vertex: [VERTEX (0, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -4.4 ACTION:  (EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -5.0 ACTION:  (EDGE E((1, 0), (2, 0)), blocked with probability: 0, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+STATE
+Current vertex: [VERTEX (2, 0), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -4.0 ACTION:  (EDGE E((2, 0), (2, 1)), blocked with probability: 0, [VERTEX (2, 0), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 1), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -2.0 ACTION:  (EDGE E((1, 1), (1, 2)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 1), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -3.0 ACTION:  (EDGE E((1, 1), (2, 1)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+STATE
+Current vertex: [VERTEX (1, 2), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -1.0 ACTION:  (EDGE E((0, 2), (1, 2)), blocked with probability: 0, [VERTEX (0, 2), target: True] [VERTEX (1, 2), target: False])
+STATE
+Current vertex: [VERTEX (2, 2), target: False]
+{E((0, 1), (0, 2)): UNKNOWN, }
+ UTILITY: -2.0 ACTION:  (EDGE E((1, 2), (2, 2)), blocked with probability: 0, [VERTEX (1, 2), target: False] [VERTEX (2, 2), target: False])
+
+
+
+ ------------------------------------------------ 
+SIMULATION:
+
+Do you want to block edge E((0, 1), (0, 2))? respond with y or n
+
+n: 
+
+(EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+(EDGE E((0, 1), (0, 2)), blocked with probability: 0.4, [VERTEX (0, 1), target: False] [VERTEX (0, 2), target: True])
+
+y: 
+
+(EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+(EDGE E((0, 0), (0, 1)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (0, 1), target: False])
+(EDGE E((0, 0), (1, 0)), blocked with probability: 0, [VERTEX (0, 0), target: False] [VERTEX (1, 0), target: False])
+(EDGE E((1, 0), (2, 0)), blocked with probability: 0, [VERTEX (1, 0), target: False] [VERTEX (2, 0), target: False])
+(EDGE E((2, 0), (2, 1)), blocked with probability: 0, [VERTEX (2, 0), target: False] [VERTEX (2, 1), target: False])
+(EDGE E((1, 1), (2, 1)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (2, 1), target: False])
+(EDGE E((1, 1), (1, 2)), blocked with probability: 0, [VERTEX (1, 1), target: False] [VERTEX (1, 2), target: False])
+(EDGE E((0, 2), (1, 2)), blocked with probability: 0, [VERTEX (0, 2), target: True] [VERTEX (1, 2), target: False])
+

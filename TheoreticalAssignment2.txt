@@ -1,0 +1,231 @@
+1)
+ 
+
+	   The first 3 statements mean that there are no edges between {A,B,C},{D,F,G}, {E} so we have 3 separate
+	   subgraphs. Then in the subgraph with A,B,C due to the first non-independence statements we have a path between
+	   A and B and a path between B and C. But due to  I({A},{C}|{B}) there is no edge between A and C so
+	   the graph must have edges A-B and B-C, so the graph has just one path: A-B-C.
+	   Due to this independence statement, B cannot be a collider (converging), so B is either diverging
+	   (a root node) or a passthough, in either direction.
+	   
+	   Then in the subgraph with D,F,G due to the not I({D},{F}|{}) and not I({D},{G}|{}) statements we have a path between
+	   F and D and a path between D and G. But due to  I({F},{G},|{}) there is no edge between F and G so
+	   the graph must have edges F-D and D-G, so the graph has just one path: F-D-G.
+	   Due to this dependence statement not I({{F},{G}|{D}) , D cannot be a diverging
+	   or a passthough , so D is collider
+	   
+	   So we have a unique underlying undirected graph, but 3 possible directed graphs.
+	   
+	   
+	   
+2) 
+
+	   a and b) No, have directed paths B-I and B-E-H-I so not DP-singly connected, and therefore also
+		   not a polytree, since 2 parallel directed paths create a cycle in the underlying undirected graph.
+	   c) d-separations:
+	      1) FALSE. first of all Rremove barren node G. In the undirected path C-A-D where A the only internal node is onbserved,
+		      and A is a diverging .
+	      2) TRUE. first of all Rremove barren node G. In the undirected path C-A-D where A the only internal node is Observed,
+		      and A is a diverging evidence node on this path and is NOT blocked.
+	      3) TRUE. Rremove barren nodes G then C. In the undirected path D-A-H-E where A is Observed,
+		      and A is a diverging evidence node on this path and is NOT blocked.
+	      4) FALSE. B and E are directly connected by an edge, so are never d-separated and thus dependent with
+		      any set of evidence nodes.
+	      5) TRUE. Removing barren nodes I, G (then H, D, and then E) completely separates B from C.
+	      6) FALSE. Removing barren nodes I (then H, and then E)In the undirected path B-G-C has only internal node G,
+		      and G is a converging (collider) evidence node on this path and is NOT blocked.
+		      
+		      
+	   d) To compute P(E=true | A=true, B=true, G=true), first remove barren node I, then H.
+		   In the remaing graph, we have d-sep({E},{G}|{B, A}) as the only path from E to G is through B
+		   which is a diverging evidence node. So we have  I({E},{G}|{B, A}).
+		   and every path in the remaing graph from A to E (A-D-G-B-E and A-C-G-B-E) go through G-B-E and we already know that d-sep({E},{G}|{B, A} so d-sep({E},{A}|{B}.
+		   So we have  I({E},{A}|{B}). so therefore:
+		   P(E=true | A=true, B=true, G=true)=P(E=true | A=true, B=true)P(E=true | B=true)=0.8
+	   
+	   
+3) 
+       
+
+	   a) The actions are A: nothing, B: Filing "normally", C: Filing with fcilitaror
+	      For A the outcome is certain, and we have:
+	     	  U[A]=1000
+		  For B we have EU[B] = -200 + 0.02*2500 + 0.98*1000 = 830
+		  For C we have EU[C] = -200 - 400 + 2500 - 20000*0.7*0.4 = 1900 - 5600 = - 3700
+
+	      So simply following the original unmodified plan appears best. for Undiscounted rewards.
+		  
+		  For discounted rewards, there is no difference for A and B, but for C the conviction cost is
+		  multiplied by the discount factor 0.2 so we get:
+			    EU'[C] = 1900 - 5600*0.2 = 1900 - 800 = 1340
+		  which is higher than the certain reward for A and than the expeced reward for B, so C is optimal
+	   b) Assuming we can only pay for the legal advice BEFORE making the original decision,
+	      Let us compute the VPI of the legal advice.
+		  Note that since this is perfect information, the probability that the legal advice says "will be convicted"
+		  is the same as the probability of conviction, which is 0.4
+		  If the legal advice says "will be convicted" this will LOWER the reward for C, so in this case
+		  the optimal action will remain A. If the advice says "no conviction", then the penalty completely
+		  disappears so the optimal action will be C. The expected reward for the optimal policy AFTER PAYING
+		  the advice fee is thus:
+		     EU{optimal given advice] = 0.6 * 1000 + 0.4 * (-200 -400 +2500) = 1360
+			 VPI[legal advice] = EU[optimal given advice] - EU[optimal with no advice] =1360 -  U[A] = 360
+			 Since the VPI is greated then the cost (100), the optimal policy begins with purchasing
+			 the advice first.
+			 
+		  For discounted rewards, obviously same if advice says no conviction, With conviction (in case charges are brought),
+		  the expected discounted penalty is 20000*0.7*0.1=1400 so in this case the discounte reward for C
+		  is U[C] = 2500-200-400-1400=500 so here too A is optimal.
+		  As the optimal policy has rewards only at time 0, its value is unchanged from the undiscounted case,
+		  and is still 1360. But the VPI is lower, as the optimal discounted reward policy with no
+		  advice is 100, so the VPI is only 260, still more than the cost. Thus, same policy as in for undiscounted
+		  rewards here.
+		  
+	  
+	  
+4)   
+	  
+
+	   b1)  State variables are location L in {I.V1,V2,V3,V4,V5,G}, belief over E4, E7 blockage in {T,F.U}
+		where U means P(E4 blocked)=0.1 and P(E7 blocked)=0.5 . We will denote the state by vector [L,B4,B7].
+			
+			Initial state is [I,U,U]
+			Terminal states are [G,x,y] where x,y are each in [T,F,U].
+
+			We will use the above type "for every x,y" to compactly represent states,
+			utilities of states, rewards, and transition distributions.
+			
+			Transition distributions are always probability 1 on the intended location otherwise 0,
+			and non {0,1} when an unknown blockage is revealed. The complete transition probability
+			is a product, as the distributions of blockages are independent.
+			
+			We denote an action by a pair a=(Vs,Vd) for moving from Vs to Vd, and assume actions are only
+			considered on a valid and unblocked edge. If S is a state, we denote by S[var] the value of var in that state.
+			So now we state the belief-state transition distribution:
+			
+			P(S'[L]=y | S[L]=x, (Vs,Vd)] = 1  if x=Vs, y=Vd, 
+				                        0  othertwise.
+											
+			P(S'[Bi]=x | S[Bi]=x, (Vs,Vd)) = 1 if not Bi=(Vj,Vd) or x=T or x=F
+			
+			P(S'[B4]=T | S[B4]=U, (Vs,Vd)) = 0.1 if B4=(Vs,Vd)
+			P(S'[B7]=T | S[B7]=U, (Vs,Vd)) = 0.5 if B7=(Vs,Vd)
+
+
+			
+			Note that:
+			P(S' | S, a) = P(S'[L]|S[L],a)P(S'[B4]|S[B4],a)P(S'[B7]|S[B7],a)
+					
+			Rewards can actually ignore the state, as the locations are encodes in the action description a
+			whenever a is legal, so we have a reward function just on the actions:
+			R((Vs,Vd)) = - 1	  
+	   b2)  Utility of states, we will start from goal states and Bellmann updates selectively.
+		We may also decide on some top-down expectimax tree search from the initial (belief) state
+			at some point. We assume a large negative initial utility on states, except for all
+			goal states S, which have U[S]=0 and remain that way throughout, simce these are terminal
+			and no additional rewards (actually penalties) can be gathered after reaching them.
+			
+			Now we update all x,y reachable states:
+
+			U[V3,x,y]  := -1   for all x,y due to action (V3,G)		
+		  	U[V5,x,y] := -1-1 = -2  for all x,y due to action (V5,V3)
+			U(V4,x,y] := -2-1 = -3  for all x,y due to action (V4,V5)
+		  	U[I,x,y] := -3-1 = -4  for all x,y due to action (I,V4)
+		  	U[V1,x,y] := -4-1 = -5  for all x,y due to action (V1,I)
+		  	U[V2,x,y] := -5-1 = -6  for all x,y due to action (V2,V1)
+
+			Now we have some more specific updates:
+			U[V5,x,F] := -1    for all x  due to action (V5,G) if E7 is unblocked
+			U[V4,x,F] := -1-1 = -2  for all x  due to action (V4,V5) if E7 is unblocked
+			U[I,x,F]  := -2-1 = -3  for all x  due to action (I,V4) if E7 is unblocked
+			U(V1,x,F] := -3-1  = -4  for all x due to action (V1,I) if E7 is unblocked
+			U(V2,x,F] := -4-1  = -5  for all x due to action (V2,V1) if E7 is unblocked
+			
+			U(V2,F,y] := -1-1 = -2  for all y due to action (V2,V3) if E4 is blocked
+			U(V1,F,y) := -2-1= -3  due to action (V1,V2) if E4 is blocked
+
+			
+			Now we can update some U states:
+			U[I,U,U] := -1 + 0.5U[V4,x,T] + 0.5*U[V4,x,F]= -1 + 0.5*(-3) * 0.5*(-2) = -3.5
+			   due to action (I,V4) accounting for both possibilities of B7
+		
+			
+			Consider now updating some values for V1:
+			U[V1,U,U] := -1-3.5 = -4.5   due to action (V1,I) 
+		
+			
+		    So attempting to move (I,V1) we could get:
+			U[I,U,U,U] := -1 -4.5 = -5.5 < -3.5
+			so this is more than the current value by a bit and the update is not made.
+			
+			No further meaningful updates appear. So the optimal policy is to go (I,V4). 
+			
+	   b3)  In this case there is a no change, The difference between the long way and the shortest and more dangerous way is 1.
+		so there is no benefit from pay 1 for the information.
+	   
+   
+   
+5) 
+
+	   a) Consider the remaining information after each of the attributes are used as a root.
+		  A branches 2: 2Y,3N ;  3: 2Y,0N
+		  B branches L: 1Y,2N ;  H: 3Y,1N
+		  C branches L: 1Y,2N ;  H: 3Y,1N
+		  D branches 0: 1Y,3N ;  1: 2Y,0N   2: 1Y,0N
+	    Clearly B,C are all equal w.r.t. distributions, whereas D has 2 branches with perfect
+		classification and A has 1 branche with perfect classification, so we will use Entopy to determine which one is better.
+		  A branches 2: -0.4log(0.4) - 0.6log(0.6) =0.97 ;  3: -0log(0) - 1log(1) = 0                                -> IG(A) = E(PARENT) - 0.71*0.97 =E(PARENT) - 0.6887
+		  D branches 0: -0.25log(0.25) - 0.75log(0.75) =0.81 ;  1: -0log(0) - 1log(1) = 0   2: -0log(0) - 1log(1) = 0     -> IG(D) = E(PARENT) - 0.57*0.81 =E(PARENT) - 0.4617
+	    IG(A) < IG(D) that is why  D is better.
+	    
+	    
+
+	   
+	   
+	    Now we call the algorithm recursively on the "0" branch of D, and the remaining attributes A,B,C.
+	     A branches  2:  0Y, 3N ; 3: 1Y, 0N
+	     B branches  L:  0Y, 2N ; H: 1Y, 1N
+	     C branches  L:  1Y, 2N ; H: 0Y, 1N	
+		
+		Clearly A is the best branch, because A has all branches with perfect classification
+		
+		No point looking further as this is a complete classification.
+		So the resulting decision tree has 2 decision (internal) nodes:
+		
+		D? 0:  A?  2:  N
+			   3:  Y
+		   1:  Y
+		   2:  Y
+		   
+		b) In general, determining minimality is hard. But in this case, we only need to determine
+		   if there is a consistent decision tree with less than 2 nodes.
+		   Now starting with A,B, or C we have incomplete classification at 2 branches in each case, and
+		   each such branch must require at least 1 additional node. So a consistent decision tree with 1
+		   decision nodes is not possible, so in that sense the tree above happens to be optimal.
+		   
+		   
+	   
+6)
+
+
+
+	  a) No.because fixing one of the inputs to 0, the first output is an exclusive or (XOR)
+	     of the remaining inputs, and we know that XOR is not linearly separable.
+	  b) We can do this with 14 units: O1 and O2 .
+	     given all five input  (x1, x2, x3, x4, x5).
+		 
+		 So one unit simply is connected to all inputs with all weights 1, and a threshold of 2.5, so
+		 whenever 3 or more inputs are 1,the weighted sum of the inputs is greater then the threshold,
+		 and the output is 1. So this unit can also act as O2.
+		 
+		 Now O1 act as not xor for the 5 inputs, and in order to do not xor for 5 inputs, we do x12 = x1 xor x2, x34 = x3 xor x4,
+		 x1234 = x12 xor x34 , x12345 = x1234 xor x5 and then not x12345.
+		 
+		 
+		 
+		 in order to return xor between x and y. x and y should  connected to H1 and H2  with a weight of (1,-1), (-1,1), and both units have a threshold of 0.5. 
+		 and connected H1 and H2 ti H3 with a weight of (1,1), and H3 has a threshold of 0.5. here ew use 3 hidden unit
+		 
+		 in order to return not  x .  connect x to H  with a weight of -1, and H has a threshold of -0.5. 
+
+	 
+

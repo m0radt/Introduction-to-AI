@@ -1,0 +1,454 @@
+1)
+
+
+   a) utility-based agent. Environment is not deterministic, partially observable, non-episodic, discrete, semi-static and multi-agent.
+   b) utility-based agent. Environment is not deterministic, partially observable, non-episodic, not discrete, dynamic, and multi-agent.
+   c) utility-based agent. Environment is not deterministic, partially observable, non-episodic, discrete, dynamic, and single-agent.
+   d) goal-based agent. Environment is deterministic, fully observable, (per problem) episodic, disctrete, static, and single-agent.
+   e) goal-based agent. Environment is deterministic, fully observable, (per problem) episodic, disctrete, static, and single-agent. 
+   
+   
+   
+2)
+
+   Define the state vector: [L, E4, PA, PB, DA, DB] with L=agent location, Pi pickup point of  
+   package i, Dj delivery point of package i and E4 = T if edge E4 blocked. The initial state is
+   thus S0=[V0,F,F,F,F,F] and a goal state is anything of the form [X,Y,T,T,T,T] where X,Y are
+   "don't care".
+    Note that initially the first graph doesn't matter because it is only graph in the fringe So
+   all search algorithms a-c start with expanding the initial node 
+   
+   S0=[V0,F,F,F,F,F]
+   They all take and expand S0, to get:
+   S1=[V1,F,T,F,F,F], h=3, g=1
+   S2=[V3,T,F,T,F,F], h=4, g=1
+   
+   
+   a) With greedy search, f(n)=h(n) so pick S1 and expand it, to get:
+   S3=[V1,F,T,F,T,F], f=h=2, g=2
+   S4=[V2,F,T,F,F,F], f=h=3, g=2
+   notice in S0 expansion we choosed S1 and broke ties in favor of states S2 with fewer blocked
+   edges.
+   So pick S3 and expand it. we choosed S3 and broke ties in favor of agent being in a lower
+   numbered vertex. we get:
+   S5=[V3,T,T,T,T,F], f=h=1, g=3
+   S6=[V1,F,T,F,T,F], f=h=3, g=3
+   So pick S5 and expand it, to get:
+   S7=[V4,T,T,T,T,T], f=h=0, g=4
+   S8=[V2,T,T,T,T,F], f=h=2, g=4
+   So pick S7, and it is a goal so return it
+
+   
+   b) With A* search,, f(n)=h(n)+g(n) so pick S1 and expand it, to get:
+   S3=[V1,F,T,F,T,F], h=2, g=2, f=4
+   S4=[V2,F,T,F,F,F], h=3, g=2, f=5
+   notice in S0 expansion we choosed S1 and broke ties in favor of states S1 with fewer blocked
+   edges, rather than S2.
+   So pick S3 and expand it. we choosed S3 and broke ties in favor of agent being in a lower
+   numbered vertex. we get:
+   S5=[V3,T,T,T,T,F], h=1, g=3, f=4
+   S6=[V1,F,T,F,T,F], h=3, g=3, f=6
+   So pick S5 and expand it, to get:
+   S7=[V4,T,T,T,T,T], h=0, g=4, f=4
+   S8=[V2,T,T,T,T,F], h=2, g=4, f=6
+   So pick S7, and it is a goal so return it
+   
+   
+   c) With RTA* the first 2 expansions are the same, after which
+   we pick S5 and have to return it.and the agent moves on that path,to V3
+
+   we pick S5 and expand it, to get:
+   S7=[V4,T,T,T,T,F], h=0, g=1, f=1
+   S8=[V2,T,T,T,T,F], h=2, g=1, f=3
+   So pick S7, and it is a goal so return it
+   
+   
+   d) Now we need to repeat the search using h'=2h, which is actually not
+   an admissible heuristic. The greedy search proceeds exactly as before,
+   except that the h' values are doubled, but this does not affect the order
+   in which nodes are picked! That is, we get:
+   
+   S0=[V0,F,F,F,F,F]
+   They all take and expand S0, to get:
+   S1=[V1,F,T,F,F,F], h=6, g=1
+   S2=[V3,T,F,T,F,F], h=8, g=1
+   Now we separate out by algorithm type.
+   
+   
+   With greedy search, f(n)=h(n) so pick S1 and expand it, to get:
+   S3=[V1,F,T,F,T,F], f=h=4, g=2
+   S4=[V2,F,T,F,F,F], f=h=6, g=2
+   So pick S3 and expand it.
+   numbered vertex. we get:
+   S5=[V3,T,T,T,T,F], f=h=2, g=3
+   S6=[V1,F,T,F,T,F], f=h=6, g=3
+   So pick S5 and expand it, to get:
+   S7=[V4,T,T,T,T,T], f=h=0, g=4
+   S8=[V2,T,T,T,T,F], f=h=4, g=4
+   So pick S7, and it is a goal so return it
+   __________________________________
+   
+   With A* search,, f(n)=h(n)+g(n) so pick S1 and expand it, to get:
+   S3=[V1,F,T,F,T,F], h=4, g=2, f=6
+   S4=[V2,F,T,F,F,F], h=6, g=2, f=8
+
+   So pick S3 and expand it. we get:
+   S5=[V3,T,T,T,T,F], h=2, g=3, f=5
+   S6=[V1,F,T,F,T,F], h=6, g=3, f=9
+   So pick S5 and expand it, to get:
+   S7=[V4,T,T,T,T,T], h=0, g=4, f=4
+   S8=[V2,T,T,T,T,F], h=4, g=4, f=8
+   So pick S7, and it is a goal so return it
+   
+   __________________________________
+   
+   With RTA* the first 2 expansions are the same, after which
+   we pick S5 and have to return it.and the agent moves on that path,to V3
+
+   we pick S5 and expand it, to get:
+   S7=[V4,T,T,T,T,F], h=0, g=1, f=1
+   S8=[V2,T,T,T,T,F], h=4, g=1, f=5
+   So pick S7, and it is a goal so return it
+  
+  
+  
+
+   
+3)
+Consider the following tree (the score at the end is (A B C) scores, respectively).
+
+A1   -----   B1  ----  C1 ----- (8  2  5)
+                       C2 ----- (7  3  5)
+             B2  ----  C1 ----- (1  1  9)
+                       C2 ----- (1  0 10)
+                       
+A2   -----   B1  ----  C1 ----- (5  2  5)
+
+A3   -----   B1  ----  C1 ----- (0  0 10)
+                       C2 ----- (20 0  0)
+                       
+A4   -----   B1  ----  C1 ----- (0  0 5)
+                       C2 ----- (19 0  10)
+             B2  ----  C1 ----- (0  0  0 )
+                       
+A5   -----   B1  ----  C1 ----- (8  3  5)
+                       C2 ----- (10  2  5)
+             B2  ----  C1 ----- (1  1  9)
+                       C2 ----- (1  2 10)
+
+
+
+Under regime a, the best move for A is A1, because the optimal move for
+B will be B1 and that for C will be C1 (C gets 5 in both cases, but prefers to give  B less),
+to get (8 2 5), i.e. a score of 8 for A.
+This is the best A can get anywhere  under this regime.
+
+Under regime b, the best move for C when A take A4 and B take B1
+will be C2 (19 0  10)
+the best move for C when A take A4 and B take B2 will be C2 (0 0 0)
+, with ties broken cooperatively, the best move for A is A4 because the
+ optimal move for B will be B1 (B gets 0 in both cases, but prefers to give A more)
+ , to get (19 0  10), i.e. a score of 19 for A.
+This is the best A can get anywhere  under this regime.
+
+Under regime c, the best move for A is A4, as C will take C1 for (19 0  10) when B1
+ and C will take C1 for (0 0 0) when B2, B aim to maximize the sum of A B, thus it choose
+  (19 0  10)i.e. 19 together,
+
+Under regime d, the best move for A is A2, which gives B and C no options, and results in 5 for A.
+Any other choice allows B and C together to make A get less than 5.
+
+Under regime e, the best move for A is A4:, because the optimal move for C when
+ B1 is (19 0  10), as B will pick a move randomly,
+and A will get 9.5 on average.
+
+
+4)
+   a) let look at this environment. p1 and p2 are package and I and X
+   competing for more packages
+   in this grid # are blocked edges
+   *********          
+   █ P2 █ █
+        #     
+   I#█  █#X
+        #     
+   █ P1 █ █ 
+         
+   *********
+   lets look at the senario were it the agent I turn to play,if agent I move to get P2,agent X gets P1
+   and if agent I move to get P1,agent X gets P2.but if agent I waited for X to move, than the agent I
+   can go for the package that X tring to get and thats who agent I can get the two packages.
+   
+   
+   b+c)
+   
+   in this grid # are blocked edges and F are fragile edges
+   p1,p2 and p3 are package and A and B competing for more packages, D delivery point for all
+   packages.
+   ******************          
+   P1 A F█F █ B P2
+   #  #  F  # # #   
+   █  █# P3#█ █ █    
+   █  █# D #█ █ █       
+   ******************
+   As a static evaluation heuristic, ((times half the number of packages already collected by the agent) times
+   number of delivery point that still reachable) plus number of packages delivered 
+    plus half times  number of delivery point that still reachable plus half times  number of packages that still reachable
+    (assuming A moves first, and that no-op is NOT allowed)
+    Pruned nodes indicated by (pruned).
+    
+    
+
+	
+A(left) 1.5 --- B(left) 0 --- A(right) 0 --- B(right) 0  --- A(right) 1.5--- A(down) 1.5--- A(down) 2   terminal: A got 2 packages
+                                                         --- A(left) 0
+                                         (pruned beta = 0)  
+					 --- B(left) 1 	
+	    (pruned beta = 0)				 
+            --- B(right) 1.5 --- A(right) 0    cutoff: can't deliver any package
+
+	
+(pruned alpha =2)	
+A(right) 1.5 --- B(right) -2 --- A(down) 1 --- B(left) -1  --- A(down) 1 terminal: A got 1 packages
+	     --- B(left) -2 --- A(right) 0      cutoff: both of agents can't deliver any package
+	
+	
+
+5)
+   a) Satisfiable. The first large disjunct has 1 model in 5 variables, and the second has 2.
+      They do not overlap since one requires "not A" and the other requires A, so total 3 models.
+      
+   b) Satisfiable. Both clauses have 7 varibles in a disjuction, so each has 2^7-1=127 models.
+      Since they are not the same, their intersection has 126 models.
+      
+   c) Satisfiable and valid.  we have an "or" with "(A or not A)" which is true for all values of the 
+   variables, there are 5 variables that why there is 2^5=32 models.
+   
+   d) Valid. This is a Horn KB, and we can forward chain to get B, then C by modus-ponens.
+   
+   e) Valid. we learned that x -> y = (not x) or y. thats why d) and e) sentences are the same
+   
+   f) Satisfiable. The first disjunct is "not A or not A" = "not A", and the 2nd is "not B or not B" 
+   = "not B".
+      So 1 model, since only "A=F, B=F" is a model. 
+      
+      
+
+
+
+
+
+6)
+   a) We need a closed world assumption on the fragile edges, i.e.
+   	not F(E1)
+   	not F(E2)
+   	not F(E3)
+   	not F(E5)
+
+   a closed world assumption on the edges, including things like "not Edge(E1, I, V2)"
+   We will have to say that the agent location is unique:
+   	LU. forall x, y, s, (Loc(x,s) and Loc(y,s)) =>  x=y
+   so in addition we will also have to say:
+   	not V0=V1
+   	not V0=V2
+   	etc.
+   we will make the edges symmetric:
+   	ES. forall e, v1, v2,  Edge(e, v1, v2) => Edge(e, v2, v1)
+   Now we are ready to start. First, package is in any loaction only if there before the action:
+   1.   forall s, v, a, id,  PackageAt(v,id,Result(a,s)) => PackageAt(v,id,s)
+   if package once delivered its always delivered
+   2.   forall s, a, id,  Delivered(id,s) => Delivered(id,Result(a,s))  
+   Likewise, fragile edges do not mend:
+   3.   forall s, e, a,  U(e,Result(a,s)) => U(e,s)
+   	
+   Now we need to model the changes that do happen due to traversal. We will define an auxiliary
+   predicate (fluent) for a successful traversal, OK(e, vs, vd, s) saying that in situation s doing a
+   traverse(e) would be successful and would move the agent from vs to vd. This will help avoid some 
+   repetitions.
+   This predicate will be true if in s the agent is at vs, there is an edge to vd, and e is not 
+   fragile.
+   4.  forall s, vs, vd, e,  (Loc(vs,s) and Edge(e,vs,vd) and U(e,s)) iff OK(e,vs,vd,s)
+
+   An agent traversing a vertex successfully brings the agent to the destinatin vertex, removes the packages 		
+   if any, breaks the edges if it is fragile:
+   5.  forall s, vs, vd, e  OK(e,vs,vd,s) => Loc(vd,Result(traverse(e),s)
+   6.  forall s, vs, vd, e, pid  OK(e,vs,vd,s) => not PackageAt(vd, pid, Result(traverse(e),s))
+   7.  forall s, vs, vd, e, pid  OK(e,vs,vd,s) and PackageAt(vd, pid, s)=> Carrying(pid, Result(traverse(e),s))
+   8.  forall s, vs, vd, e, pid  OK(e,vs,vd,s) and Deliver(pid,vd) and Carrying(pid,s)=> Delivered(pid,Result(traverse(e),s)) and not Carrying(pid,(traverse(e),s))
+   9.  forall s, vs, vd, e  (OK(e,vs,vd,s) and F(e)) => not U(e,Result(traverse(e),s))
+   We also have to have frame axioms on packages not disappearing spontaneously ,
+   and also vertices not breaking spontaneously (absolutely needed, so below).
+   10.  forall s, vs, vd, e, pid  not PackageAt(vd,pid,Result(traverse(e),s) => (not PackageAt(vd,pid,s) or OK(e, vs, vd, s))
+   11.  forall s, vs, vd, e  not U(e,Result(traverse(e),s) => (not U(e,s) or OK(e, vs, vd, s))
+   normal edges always unblocked:
+   12. forall e,s, not F(e) => U(e,s)
+   
+    
+
+
+
+   b)
+      A) Conversion of LU, ES, and 1-12 to CNF:
+          LU1.  not Loc(x,s) or not Loc(y,s) or  x=y
+          
+          ES1.  not Edge(e, v1, v2) or Edge(e, v2, v1)
+          
+          1.1   not PackageAt(v,id,Result(a,s)) or PackageAt(v,id,s)
+          2.1   not Delivered(id,s) or Delivered(id,Result(a,s))  
+          3.1   not  U(e,Result(a,s)) or U(e,s)
+          
+          4.  forall s, vs, vd, e,  (Loc(vs,s) and Edge(e,vs,vd) and U(e,s)) iff OK(e,vs,vd,s)
+          This requires several steps: convert iff into 2 implications
+		4A forall s, vs, vd, e,  (Loc(vs,s) and Edge(e,vs,vd) and U(e,s)) => OK(e,vs,vd,s)
+		4B forall s, vs, vd, e,  OK(e,vs,vd,s) => (Loc(vs,s) and Edge(e,vs,vd) and U(e,s))
+		
+		4A1 not Loc(vs,s) or not Edge(e,vs,vd) or not U(e,s) or OK(e,vs,vd,s)
+		
+		4B1 not  OK(e,vs,vd,s) or Loc(vs,s) 
+		4B2 not OK(e,vs,vd,s) or Edge(e,vs,vd) 
+		4B3 not OK(e,vs,vd,s) or U(e,s)
+		
+	  finaly we get:
+	  	
+	  4A1 not Loc(vs,s) or not Edge(e,vs,vd) or not U(e,s) or OK(e,vs,vd,s)	
+	  4B1 not  OK(e,vs,vd,s) or Loc(vs,s) 
+	  4B2 not OK(e,vs,vd,s) or Edge(e,vs,vd) 
+	  4B3 not OK(e,vs,vd,s) or U(e,s)
+	  
+	  
+	  5.1 not OK(e,vs,vd,s) or Loc(vd,Result(traverse(e),s)
+      
+          6.1  not  OK(e,vs,vd,s) or not PackageAt(vd, pid, Result(traverse(e),s))
+
+          7.1  not  OK(e,vs,vd,s) or not PackageAt(vd, pid, s) or Carrying(pid, Result(traverse(e),s))
+          8.1  not  OK(e,vs,vd,s) or not Deliver(pid,vd) or not Carrying(pid,s) or Delivered(pid,Result(traverse(e),s)) 
+          8.2  not  OK(e,vs,vd,s) or not Deliver(pid,vd) or not Carrying(pid,s) or not Carrying(pid,(traverse(e),s))
+          9.1  not OK(e,vs,vd,s) or not F(e) or not U(e,Result(traverse(e),s))
+          10.1 PackageAt(vd,pid,Result(traverse(e),s) or not PackageAt(vd,pid,s) or OK(e, vs, vd, s)
+          11.1  U(vd,Result(traverse(e),s) or not U(vd,s) or OK(e, vs, vd, s)
+          12.1  F(e) or U(e,s)
+      B)  We need to prove: 
+	     Q. forall pid, Delivered(pid,Result(traverse(E5),Result(traverse(E4),Result(traverse(E1),Result(traverse(E1),S0)))))
+		Negation of Q is:
+		 Q'.  exists pid, not Delivered(pid,Result(traverse(E5),Result(traverse(E4),Result(traverse(E1),Result(traverse(E1),S0)))))
+		or as a CNF clause, with VP1 a Skolem constant:
+		 Q'CNF. not Delivered(VP1,Result(traverse(E5),Result(traverse(E4),Result(traverse(E1),Result(traverse(E1),S0)))))
+		 
+		 
+      C) Our method will be: prove at each situation that it is OK to do the traversal, then prove needed
+	   propoerties of the result situations, for all 4 actions in sequence. (Alternately can proceed
+	   from Q'CNF to get the same results). Starting with S0:
+	   
+	   Resolve 4A1 with Loc(I, S0), unifier {vs/I, s/S0} to get:
+	     100.  not Edge(e,I,vd) or not U(e,S0) or OK(e,I,vd,S0)
+	 
+	   Resolve 100 with 12.1, unifier {s/S0} to get:
+	     101.  not Edge(e,I,vd) or F(e) or OK(e,I,vd,S0)
+	   Resolve 101 with Edge(E1, I, V1), unifier {e/E1,vd/V1} to get:
+	     102.  F(E1) or OK(E1,I,V1,S0)
+	   Resolve 102 with not F(E1), unifier {} to get:
+	     103.  OK(E1,I,V1,S0)
+	   Resolve 103 with 5.1, unifier {e/E1, vs/I, vd/V1, s/S0} to get:
+	     104.  Loc(V1,Result(traverse(E1),S0)) = Loc(V1,S1)
+	     
+	   For now we will denote Result(traverse(E1),S0)) by S1,
+	   and Result(traverse(E1),Result(traverse(E1),S0)) = Result(traverse(E1),S1) by S2.
+	   and Result(traverse(E4),S2)) by S3,
+	   and Result(traverse(E5),S3)) by S4,
+	   
+	   Resolve 104 with 4A1, unifier {vs/V1, s/S1} to get:
+	     105.  not Edge(e,V1,vd) or not U(e,S1) or OK(e,V1,vd,S1)	
+	   Resolve 105 with 12.1, unifier {s/S1} to get:
+	     106.  not Edge(e,V1,vd) or F(e) or OK(e,V1,vd,S1)
+	     
+	   Resolve 106 with ES1, unifier {v2/V1, vd/v1} to get:
+	     107.  not Edge(e, v1, V1) or F(e) or OK(e,V1,v1,S1)
+
+	     
+	   Resolve 107 with Edge(E1, I, V1), unifier {e/E1,v1/I} to get:
+	     108.  F(E1) or OK(E1,V1,I,S1)
+	   Resolve 108 with not F(E1), unifier {} to get:
+	     109.  OK(E1,V1,I,S1)
+	     
+	   Resolve 109 with 5.1, unifier {e/E1, vs/V1, vd/I, s/S1} to get:
+	     110.  Loc(I,Result(traverse(E1),S1)) = Loc(I,S2)
+	     
+	   Resolve Edge(e, vs, vd) with ES1, unifier {e/E4, v1/V3, v2/I} to get:
+	     111.  Edge(E4, I, V3)
+	   Resolve 110 with 4A1, unifier {vs/I, s/S2} to get:
+	     112.  not Edge(e,I,vd) or not U(e,S2) or OK(e,I,vd,S2)
+	   Resolve 112 with 111, unifier {e/E4, vd/V3} to get:
+	     113.  not U(E4,S2) or OK(E4,I,V3,S2)
+	   Resolve 113 with 11.1, unifier {s/S1, e/E4} to get:
+	   Result(traverse(e),s)/ S2 = Result(traverse(E4),S1)
+	     114.  not U(E4,S1) or OK(E4, vs, vd, S1) or OK(E4,I,V3,S2)
+	     
+	   Resolve 114 with 4B3, unifier {s/S1, e/E4} to get:
+	     115.  not U(E4,S1) or U(E4,S1) or OK(E4,I,V3,S2)
+	   which is the equivalent to:
+	     115.  OK(E4,I,V3,S2)
+	   Resolve 115 with 5.1, unifier {e/E4, vs/I, vd/V3, s/S2} to get:
+	     116.  Loc(vd,Result(traverse(E4),S2)) = Loc(V3,S3)
+	   Resolve 116 with 4A1, unifier {vs/V3, s/S3} to get:
+	     117.  not Edge(e,V3,vd) or not U(e,S3) or OK(e,V3,vd,S3)	
+	   Resolve 117 with Edge(E5, V3, V4), unifier {e/E5, vd/V4} to get:
+	     118.  not U(E5,S3) or OK(E5,V3,V4,S3)	
+	   Resolve 118 with 12.1, unifier {e/E5, s/S3} to get:
+	     119.  F(E5) or OK(E5,V3,V4,S3)
+	   Resolve 119 with not F(E5), unifier {} to get:
+	     120.  OK(E5,V3,V4,S3)
+	   Resolve 120 with 8.1, unifier {e/E5, vs/V3, vd/V4, s/S3} to get:
+	     121.  not Deliver(pid,V4) or not Carrying(pid,S3) or Delivered(pid,Result(traverse(E5),S3))
+	     121.  not Deliver(pid,V4) or not Carrying(pid,S3) or Delivered(pid,S4)  
+	   Resolve 121 with Deliver(B, V4), unifier {pid/B} to get:
+	     122.  not Carrying(B,S3) or Delivered(B,S4)  
+	   Resolve 122 with 7.1, unifier {pid/B, e/E4, s/S2} to get:
+	     123.  not  OK(E4,vs,vd,S2) or not PackageAt(vd, B, S2) or Delivered(B,S4) 
+	   Resolve 123 with 115, unifier {vs/I, vd/V3, s/S2} to get:
+	     124.  not PackageAt(V3, B, S2) or Delivered(B,S4) 
+	     
+	     
+	     
+	     
+	     
+	     
+	   Resolve 124 with 10.1, unifier {pid/B, vd/V3, s/S1, e/E1} to get:
+	     125.  not PackageAt(V3,B,S1) or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 125 with 10.1, unifier {pid/B, vd/V3, s/S0, e/E1} to get:
+	     126.  not PackageAt(V3,B,S0) or OK(E1, vs, V3, S0) or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 126 with PackageAt(V3, B, S0), unifier {} to get:
+	     127.  OK(E1, vs, V3, S0) or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 127 with 5.1, unifier {e/E1, vd/V3, s/S0} to get:
+	     128.  Loc(V3,Result(traverse(E1),S0)) or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	     128.  Loc(V3,S1) or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 128 with LU1, unifier {y/V3, s/S1} to get:
+	     129.  not Loc(x,S1) or x=V3 or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 129 with 5.1, unifier {e/E1, vd/V3, s/S0} to get:
+	     130.  not Loc(x,S1) or x=V3 or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 130 with 104, unifier {x/V1} to get:
+	     131.  V1=V3 or OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 131 with not V1=V3, unifier {} to get:
+	     132.  OK(E1, vs, V3, S1) or Delivered(B,S4)
+	   Resolve 132 with 5.1, unifier {e/E1, vd/V3, s/S1} to get:
+	     133.  Loc(V3,S2) or Delivered(B,S4)
+	   Resolve 133 with LU1, unifier {y/V3, s/S2} to get:
+	     134.  not Loc(x,S2) or  x=V3  or Delivered(B,S4)
+	   Resolve 134 with 110, unifier {x/I} to get:
+	     135.  I=V3  or Delivered(B,S4)
+	   Resolve 135 with not I=V3, unifier {x/I} to get:
+	     136. Delivered(B,S4)
+	     136. Delivered(B,Result(traverse(E5),Result(traverse(E4),Result(traverse(E1),Result(traverse(E1),S0)))))
+	   Resolve 136 with Q'CNF, unifier {VP1/V3} to get:
+	     finally we get an empty clause!
+	     
+	     
+   c)Indeed, we had to state frame axioms above that packages do not appear
+	  spontaneously , and that edges do not block spontaneously .
+	  Without these axioms we would not be able to prove the theorem all packages have been delivered
+	  
+	  
+	  
+   d)Not as-is. For example, 10 is not horn clause and there is no way
+	  to prove Q without it. why learned in class that forward chaining works only on horn clauses
+   
+

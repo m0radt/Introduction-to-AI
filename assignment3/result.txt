@@ -1,0 +1,32 @@
+Inserted evidence : (EMPTY)
+Inserted query : Season
+
+distribution output: {'low': 0.1, 'medium': 0.4, 'high': 0.5}
+
+*****************************************************************
+
+Inserted evidence : Season=medium
+Inserted query : V(1, 1)
+
+distribution output: {True: 0.6, False: 0.4}
+
+*****************************************************************
+
+Inserted evidence : V(1, 0)=T|V(1, 1)=T
+Inserted query : E((1, 0), (1, 1))
+
+
+distribution output: {True: 0.96, False: 0.04}
+*****************************************************************
+
+Inserted evidence : V(1, 0)=T
+Inserted query : E((1, 0), (1, 1))
+
+distribution output: {True: 0.924, False: 0.076}
+
+*****************************************************************
+
+Inserted evidence : V(1, 0)=T|Season=low
+Inserted query : E((1, 0), (1, 1))
+
+distribution output: {True: 0.848, False: 0.152}
